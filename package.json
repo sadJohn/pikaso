@@ -1,0 +1,15 @@
+{
+  "name": "pikaso",
+  "scripts": {
+    "client": "cd client && bun run dev",
+    "server": "bun run --hot server/index.ts",
+    "dev": "concurrently \"bun run server\" \"bun run client\""
+  },
+  "dependencies": {
+    "hono": "^4.10.7"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "concurrently": "^9.2.1"
+  }
+}
