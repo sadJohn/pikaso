@@ -1,15 +1,36 @@
 {
   "name": "pikaso",
+  "type": "module",
   "scripts": {
     "client": "cd client && bun run dev",
     "server": "bun run --hot server/index.ts",
-    "dev": "concurrently \"bun run server\" \"bun run client\""
+    "dev": "concurrently \"bun run server\" \"bun run client\"",
+    "install:client": "cd client && bun install",
+    "install:app": "bun install && bun run install:client",
+    "build": "bun build ./server/index.ts --outdir=./dist/server --target bun && cd client && bun run build",
+    "start": "bun run ./dist/server/index.js",
+    "format": "prettier --write . && eslint --fix",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*": [
+      "bun run format"
+    ]
   },
   "dependencies": {
-    "hono": "^4.10.7"
+    "hono": "^4",
+    "zod": "^4"
   },
   "devDependencies": {
+    "@tanstack/eslint-config": "^0",
+    "@trivago/prettier-plugin-sort-imports": "^6",
     "@types/bun": "latest",
-    "concurrently": "^9.2.1"
+    "concurrently": "^9",
+    "eslint": "^9",
+    "eslint-config-prettier": "^10",
+    "husky": "^9",
+    "lint-staged": "^16",
+    "prettier": "^3",
+    "prettier-plugin-tailwindcss": "^0"
   }
 }

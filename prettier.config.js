@@ -7,7 +7,7 @@ const config = {
   trailingComma: 'all',
 
   importOrder: [
-    '^(react|next?/?([a-zA-Z/]*))$',
+    '^(react?/?([a-zA-Z/]*))$',
     '<THIRD_PARTY_MODULES>',
     '^@/(.*)$',
     '^[./]',
